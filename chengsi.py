@@ -3,6 +3,7 @@ Escape Room Core
 """
 import random, sys
 
+global s
 def create_container_contents(*escape_room_objects):
     return {obj.name: obj for obj in escape_room_objects}
     
@@ -280,37 +281,37 @@ class EscapeRoomGame:
                 self.status = "escaped"
         
 def main(args):
-  
+
 
     global s
-        s=socket.socket()
-        a=s.connect(('192.168.200.52',19002))
-        s.recv(1024)
-        s.send(b'Chengsi yang<EOL>\n')
-        s.recv(1024)
-        s.send(b'look<EOL>\n')
-        s.recv(1024)
-        s.send(b'look mirror<EOL>\n')
-        s.recv(1024)
-        s.send(b'get hairpin<EOL>\n')
-        s.recv(1024)
-        s.send(b'unlock door with hairpin<EOL>\n')
-        s.recv(1024)
-        s.send(b'open door<EOL>\n')
-        s.recv(1024)
-        s.recv(1024)
-        time.sleep(0.25)    
-        game = EscapeRoomGame()
-        game.create_game(cheat=("--cheat" in args))
-        game.start()
-        while game.status == "playing":
-            command=s.recv(1024)
-            command=command.decode()
-            cb=command.split('\n')
-            for i in cb:
-                if i!='':
-                    output = game.command(i[0:-5])
-        print(s.recv(1024))
+    s=socket.socket()
+    a=s.connect(('192.168.200.52',19002))
+    s.recv(1024)
+    s.send(b'Chengsi yang<EOL>\n')
+    s.recv(1024)
+    s.send(b'look<EOL>\n')
+    s.recv(1024)
+    s.send(b'look mirror<EOL>\n')
+    s.recv(1024)
+    s.send(b'get hairpin<EOL>\n')
+    s.recv(1024)
+    s.send(b'unlock door with hairpin<EOL>\n')
+    s.recv(1024)
+    s.send(b'open door<EOL>\n')
+    s.recv(1024)
+    s.recv(1024)
+    time.sleep(0.25)    
+    game = EscapeRoomGame()
+    game.create_game(cheat=("--cheat" in args))
+    game.start()
+    while game.status == "playing":
+        command=s.recv(1024)
+        command=command.decode()
+        cb=command.split('\n')
+        for i in cb:
+            if i!='':
+                output = game.command(i[0:-5])
+    print(s.recv(1024))
 
 
 if __name__=="__main__":
