@@ -294,7 +294,7 @@ def main(args):
     s=socket.socket()
     a=s.connect(('192.168.200.52',19002))
     shown_output(s.recv(1024))
-    s.send(b'Haoshuai Ding<EOL>\n')
+    s.send(b'Chengsiyang<EOL>\n')
     shown_output(s.recv(1024))
     s.send(b'look<EOL>\n')
     shown_output(s.recv(1024))
