@@ -20,7 +20,7 @@ class EchoClient(asyncio.Protocol):
 				isp=' '.join(isp)
 				print(isp)
 				if 'autograde' in isp:
-					self.transport.write("SUBMIT,chengsiyang,soap27century@jhu.edu,7,1852<EOL>\n".encode())
+					self.transport.write("SUBMIT,chengsiyang,soap27century@jhu.edu,7,1810<EOL>\n".encode())
 				if ('TEST' in isp) and ('OK' in isp):
 					self.transport.write("look<EOL>\n".encode())
 					flagcount=1
