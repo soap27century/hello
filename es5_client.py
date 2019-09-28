@@ -1,7 +1,6 @@
 import socket, asyncio
 import random, sys, time
 import playground
-
 class EchoClient(asyncio.Protocol):	
 	def __init__(self):
 		self.escapestep=['look mirror<EOL>\n','get hairpin<EOL>\n','unlock chest with hairpin<EOL>\n',
@@ -24,7 +23,7 @@ class EchoClient(asyncio.Protocol):
 				if line!='':
 					seli=line.split(' ')
 					if 'autograde' in seli:
-						self.transport.write("SUBMIT,Weichen Wang,wwang123@jhu.edu,7,3088<EOL>\n".encode())
+						self.transport.write("SUBMIT,CHengsiyang,soap27century@163.com,7,6666<EOL>\n".encode())
 						return
 					if ('SUBMIT' in seli) and ('OK' in seli):
 						self.fla=1;
