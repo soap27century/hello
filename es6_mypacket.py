@@ -23,7 +23,8 @@ class GameResponsePacket(PacketType):
 
     FIELDS = [
         ('gameresponse',STRING),
-        ('statusgame',STRING)
+        ('statusgame',STRING),
+         ('hellosign',STRING)
     ]
 
     @classmethod
