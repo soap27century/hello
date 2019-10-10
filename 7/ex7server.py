@@ -21,7 +21,7 @@ bank_port = 777
 pgLog.EnablePresetLogging(pgLog.PRESET_VERBOSE)
 
 
-SERVER_PORT = 3088
+SERVER_PORT = 6666
 AG_IP       = '192.168.200.52'
 AG_PORT     = 19007
 
@@ -40,7 +40,7 @@ def verify(bank_client, receipt_bytes, signature_bytes, dst, amount, memo):
 class Ex7Server(asyncio.Protocol): 
     def __init__(self, bank_client):
         self.bank_client = bank_client
-        self.dst = 'wwang123_account'
+        self.dst = 'chengsiyang_account'
         self.amount = 5
         self.memo = 'Caster'
         self.state = "not running"
@@ -106,8 +106,8 @@ class Ex7Server(asyncio.Protocol):
         await asyncio.wait([asyncio.ensure_future(a) for a in self.game.agents])
 
 def main(args):
-    username = 'wwang123'
-    password = 'Netsecurity3308'
+    username = 'cyang86'
+    password = 'yangyang2612A'
     bank_client = BankClientProtocol(bank_cert, username, password)
     loop = asyncio.get_event_loop()
     coro = playground.create_server(lambda: Ex7Server(bank_client),'localhost', SERVER_PORT) 

@@ -25,7 +25,7 @@ bank_port = 777
 # Setup logging right away
 pgLog.EnablePresetLogging(pgLog.PRESET_VERBOSE)
 
-SERVER_PORT = 3088
+SERVER_PORT = 6666
 #AG_IP   = '192.168.200.52'
 AG_IP   = '20194.0.0.19000'
 AG_PORT = 19007
@@ -88,12 +88,12 @@ def deal_with_input(client, packet):
             pass
         if packet.server_status == 1:
             pass
-        client.write(create_game_init_packet('wwang123'))
+        client.write(create_game_init_packet('chengsiyang'))
     elif isinstance(packet, CreateGameRequirePayPacket):
         uid, account, amount = process_game_require_pay_packet(packet)
         # Process payments
         #print("Begin transfer")
-        result = asyncio.ensure_future(send_payment(client, client.bank_client, 'wwang123_account', account, amount, uid))
+        result = asyncio.ensure_future(send_payment(client, client.bank_client, 'chengsiyang_account', account, amount, uid))
         #await result
         #print(f"Transfer completed:\n\treceipt: {result.Receipt}\n\tsignature:{result.ReceiptSignature}")
         #client.write(create_game_pay_packet(result.Receipt, result.ReceiptSignature))
@@ -137,9 +137,9 @@ class Ex7Client(asyncio.Protocol):
     def connection_made(self, transport):
         self.transport = transport
         startPacket = AutogradeStartTest()
-        startPacket.name = "Weichen Wang"
+        startPacket.name = "chengsiyang"
         startPacket.team = 1
-        startPacket.email = "wwang123@jhu.edu"
+        startPacket.email = "soap27century@163.com"
         startPacket.port = SERVER_PORT
         with open("gamepacket.py", "rb") as f:
             startPacket.packet_file = f.read()
@@ -177,8 +177,8 @@ class Ex7Client(asyncio.Protocol):
         print("Disconnected")    
 
 if __name__ == "__main__":
-    username = 'wwang123'
-    password = 'Netsecurity3308'
+    username = 'cyang86'
+    password = 'yangyang2612A'
     bank_client = BankClientProtocol(bank_cert, username, password) 
     loop = asyncio.get_event_loop()
     coro = playground.create_connection(lambda: Ex7Client(bank_client), AG_IP, AG_PORT)
