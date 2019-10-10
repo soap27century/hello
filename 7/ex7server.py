@@ -40,7 +40,7 @@ def verify(bank_client, receipt_bytes, signature_bytes, dst, amount, memo):
 class Ex7Server(asyncio.Protocol): 
     def __init__(self, bank_client):
         self.bank_client = bank_client
-        self.dst = 'chengsiyang_account'
+        self.dst = 'cyang86'
         self.amount = 5
         self.memo = 'Caster'
         self.state = "not running"

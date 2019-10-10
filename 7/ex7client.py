@@ -93,7 +93,7 @@ def deal_with_input(client, packet):
         uid, account, amount = process_game_require_pay_packet(packet)
         # Process payments
         #print("Begin transfer")
-        result = asyncio.ensure_future(send_payment(client, client.bank_client, 'chengsiyang_account', account, amount, uid))
+        result = asyncio.ensure_future(send_payment(client, client.bank_client, 'cyang86', account, amount, uid))
         #await result
         #print(f"Transfer completed:\n\treceipt: {result.Receipt}\n\tsignature:{result.ReceiptSignature}")
         #client.write(create_game_pay_packet(result.Receipt, result.ReceiptSignature))
